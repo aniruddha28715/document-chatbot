@@ -1,50 +1,143 @@
-# Document Chatbot
+# Document Chatbot with Streamlit and Ollama
 
-A Streamlit-based chatbot that allows you to upload documents (PDF, TXT, or DOCX) and ask questions about their content. The chatbot uses Ollama's LLM models to provide responses based solely on the uploaded document's content.
+A powerful document-based chatbot that allows you to upload documents (PDF, TXT, DOCX) and ask questions about their content. The application uses Streamlit for the user interface and Ollama for local LLM processing.
 
-## Prerequisites
+## 🌟 Features
 
-1. Python 3.8 or higher
-2. Ollama installed on your system
-3. The llama2 model pulled in Ollama
+- **Multiple Document Formats**: Support for PDF, TXT, and DOCX files
+- **Local LLM Processing**: Uses Ollama's llama3.2 model for processing
+- **Real-time Processing**: Instant document analysis and question answering
+- **Chat History**: Maintains conversation context during the session
+- **User-friendly Interface**: Clean and intuitive Streamlit interface
+- **Vector-based Search**: Efficient document retrieval using Chroma vector store
+- **Memory Management**: Maintains conversation context using ConversationBufferMemory
 
-## Installation
+## 🚀 Prerequisites
 
-1. Clone this repository
-2. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
+Before you begin, ensure you have the following installed:
 
-3. Make sure Ollama is running on your system and you have the llama2 model:
-```bash
-ollama pull llama2
-```
+1. **Python 3.8 or higher**
+   ```bash
+   python --version
+   ```
 
-## Running the Application
+2. **Ollama**
+   - Install Ollama from [ollama.ai](https://ollama.ai)
+   - Pull the llama3.2 model:
+     ```bash
+     ollama pull llama3.2
+     ```
 
-1. Start the Streamlit app:
-```bash
-streamlit run app.py
-```
+3. **Git** (for cloning the repository)
+   ```bash
+   git --version
+   ```
 
-2. Open your web browser and navigate to the URL shown in the terminal (typically http://localhost:8501)
+## 📦 Installation
 
-## Usage
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/aniruddha28715/document-chatbot.git
+   cd document-chatbot
+   ```
 
-1. Upload a document (PDF, TXT, or DOCX) using the file uploader
-2. Wait for the document to be processed
-3. Start asking questions about the document's content
-4. The chatbot will respond based only on the information present in the uploaded document
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Features
+3. **Start Ollama server**
+   ```bash
+   ollama serve
+   ```
+   Note: Keep this running in a separate terminal window.
 
-- Support for multiple document formats (PDF, TXT, DOCX)
-- Real-time document processing
-- Chat history preservation during the session
-- Responses based solely on document content
-- User-friendly interface
+## 🏃‍♂️ Running the Application
 
-## Note
+1. **Start the Streamlit app**
+   ```bash
+   streamlit run app.py
+   ```
 
-Make sure you have enough system resources as the document processing and LLM operations can be memory-intensive. 
+2. **Access the application**
+   - Open your web browser
+   - Navigate to `http://localhost:8502`
+
+## 💻 Usage
+
+1. **Upload a Document**
+   - Click the "Upload your document" button
+   - Select a PDF, TXT, or DOCX file
+   - Wait for the document to be processed
+
+2. **Ask Questions**
+   - Type your question in the chat input
+   - Press Enter or click the send button
+   - View the AI's response based on the document content
+
+3. **Chat History**
+   - Previous questions and answers are displayed in the chat interface
+   - The conversation context is maintained throughout the session
+
+## 🔧 Technical Details
+
+### Architecture
+- **Frontend**: Streamlit
+- **LLM**: Ollama (llama3.2)
+- **Vector Store**: Chroma
+- **Document Processing**: LangChain
+- **Embeddings**: OllamaEmbeddings
+
+### Key Components
+- `app.py`: Main application file
+- `requirements.txt`: Python dependencies
+- `README.md`: Documentation
+
+## ⚠️ Important Notes
+
+1. **Ollama Server**
+   - Must be running for the application to work
+   - Default port: 11434
+   - If you see "address already in use" error, Ollama is already running
+
+2. **System Requirements**
+   - Minimum 8GB RAM recommended
+   - Sufficient disk space for document processing
+   - Stable internet connection for initial setup
+
+3. **Document Limitations**
+   - Maximum file size: 100MB
+   - Supported formats: PDF, TXT, DOCX
+   - Text-based documents work best
+
+## 🔍 Troubleshooting
+
+1. **Ollama Connection Issues**
+   ```bash
+   # Check if Ollama is running
+   curl http://localhost:11434/api/tags
+   ```
+
+2. **Missing Dependencies**
+   ```bash
+   # Reinstall requirements
+   pip install -r requirements.txt --upgrade
+   ```
+
+3. **Port Conflicts**
+   - If port 8502 is in use, Streamlit will automatically use the next available port
+   - Check the terminal output for the correct URL
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- [Streamlit](https://streamlit.io/) for the web framework
+- [Ollama](https://ollama.ai/) for the LLM capabilities
+- [LangChain](https://python.langchain.com/) for the document processing framework 
